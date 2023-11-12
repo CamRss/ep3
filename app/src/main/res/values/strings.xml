@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Camilla Shop</string>
+    <string name="saludo">¡Es un buen día para tomar café!</string>
+    <string name="mensaje">Shop Topito</string>
+    <string name="autor">Camilla Rosse</string>
+    <string name="logo">Logo de la empresa</string>
+    <string name="frase"> ¡Es un buen día para tomar café!</string>
+    <string name="Boton_princi">Pedidos</string>
+    <string name="title_activity_empezar">Empezar</string>
+    <string name="descripcion_imagen_empezar">Mujer comprando en supermercado</string>
+    <string name="frase_empezar">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at ultricies mi, eget porta tortor. Aenean euismod nibh urna, ut ornare libero posuere vitae. Praesent dignissim nunc nulla. Pellentesque augue sem, dictum eget quam quis, interdum malesuada enim. In viverra tellus eu tincidunt imperdiet. Aliquam erat volutpat.
+    </string>
+    <string name="empiece">Empiece ya!</string>
+    <string name="termino">Términos</string>
+    <string name="title_activity_terminos">Terminos y condiciones</string>
+    <string name="title_activity_escritorio">Escritorio</string>
+
+    <string name="contenido_terminos">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at ultricies mi, eget porta tortor. Aenean euismod nibh urna, ut ornare libero posuere vitae. Praesent dignissim nunc nulla. Pellentesque augue sem, dictum eget quam quis, interdum malesuada enim. In viverra tellus eu tincidunt imperdiet. Aliquam erat volutpat. Donec accumsan enim dui, nec commodo nunc fermentum a. Nullam efficitur lacus eu enim commodo, vel sagittis lorem bibendum.
+\n\n
+Praesent molestie felis eu luctus tempus. Sed eget ante mauris. Nunc laoreet, sem in vehicula sagittis, arcu dui finibus libero, a ultrices leo nisi sed mi. Aliquam tempus eu dolor ut luctus. Integer id maximus odio, a dictum metus. Donec feugiat turpis ut justo vehicula, ut vehicula sem tincidunt. Pellentesque et efficitur tellus, et tincidunt risus. Vivamus tempor elementum leo id rhoncus. Integer euismod porttitor eros nec iaculis. Curabitur dictum massa sed sodales volutpat. Fusce et tristique magna.
+\n\n
+Pellentesque ut lacus consequat, sodales odio nec, bibendum ipsum. Quisque dictum vestibulum quam ac porta. Praesent pharetra pharetra ultrices. Donec nec erat sed neque consectetur ultrices at ac eros. Donec gravida turpis ut aliquet interdum. Maecenas aliquet congue risus, at porta metus ultrices tincidunt. Cras eget justo quam. Curabitur varius massa lacus, id consequat ante ornare eget. Phasellus tempor dapibus risus, at vestibulum tortor pharetra et. Morbi sem lacus, consectetur sed euismod sagittis, porta quis urna. Maecenas orci lacus, dignissim a augue eget, elementum fringilla ligula.
+\n\n
+Duis mattis ultrices velit, et imperdiet felis. Vestibulum et risus est. Etiam ut arcu scelerisque, interdum justo sit amet, consequat metus. Mauris ac sollicitudin libero. Nullam ultricies ultricies iaculis. Donec tempus eleifend libero in sodales. In hac habitasse platea dictumst. Integer scelerisque cursus urna, tempor vestibulum libero euismod ut.
+\n\n
+Nulla ligula eros, efficitur quis tincidunt ac, pellentesque quis lacus. Donec a magna suscipit, blandit neque eu, laoreet elit. In pellentesque massa a elementum ornare. Duis luctus finibus nunc viverra cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam suscipit dolor ipsum, id aliquam augue tempor at. Etiam ullamcorper feugiat malesuada. Sed lorem felis, elementum nec dolor a, tincidunt blandit felis. Quisque finibus fermentum arcu in iaculis. Phasellus at pellentesque quam, ac tempus dolor. Aliquam vitae malesuada eros.
+\n\n
+Aenean eget lorem non ligula tempus aliquam. Duis diam erat, efficitur vel fermentum eu, accumsan vel metus. In non vulputate justo. Vestibulum enim erat, tempor id magna a, egestas consectetur libero. Ut ligula neque, semper suscipit erat nec, maximus fringilla arcu. Integer mattis dolor non leo accumsan, in consectetur magna rhoncus. Donec eros urna, cursus a lorem a, hendrerit vulputate nisl. Integer porta leo non elit imperdiet scelerisque. In vel pellentesque ligula. Aliquam vel ultrices velit, sit amet rutrum massa. Nulla molestie euismod ligula non pellentesque.
+    </string>
+
+    <string name="cerrar">Cerrar</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_proveedores">Proveedores</string>
+    <string name="title_activity_empleados">Empleados</string>
+    <string name="title_activity_tienda">Tienda</string>
+    <string name="title_activity_area_clientes">Area de Clientes</string>
+    <string name="title_activity_caja">Caja</string>
+    <string name="cantidad_productos">Total:</string>
+    <string name="cantidad_pedidos">ID:</string>
+    <string name="cantidad_usuario">Usuario:</string>
+    <string name="cantidad_nombres">Nombres:</string>
+    <string name="title_activity_productos">ProductosActivity</string>
+    <string name="title_activity_directores">Directores</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_mas_informacion">Mas Información</string>
+    <string name="title_activity_socios">Socios</string>
+    <string name="title_activity_producto_detalle">ProductoDetalleActivity</string>
+    <string name="title_activity_directores_insert">DirectoresInsertActivity</string>
+    <string name="title_activity_directores_update">DirectoresUpdateActivity</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
+    <string name="title_activity_pedidos">Pedidos</string>
+    <string name="title_activity_pedido_seleccionado">PedidoSeleccionadoActivity</string>
+</resources>
