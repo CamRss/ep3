@@ -31,7 +31,7 @@ class SplashActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LaunchedEffect(key1 = true){
-                delay(3000)
+                delay(2000)
                 startActivity(Intent(this@SplashActivity,MainActivity::class.java))
                 finish()
             }

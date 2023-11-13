@@ -102,4 +102,5 @@ dependencies {
 
     implementation("com.android.volley:volley:1.2.1")
     implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
 }
