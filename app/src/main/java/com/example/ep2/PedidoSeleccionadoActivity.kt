@@ -1,5 +1,6 @@
 package com.example.ep2
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.android.volley.Request
@@ -89,20 +92,22 @@ class PedidoSeleccionadoActivity : ComponentActivity() {
 
     private fun dibujar(arrayList: ArrayList<HashMap<String, String>>) {
         setContent {
-            LazyRow(
-                modifier = Modifier.fillMaxSize(),
-                content = {
-                    items(items = arrayList, itemContent = { pedido ->
-                        Box(
-                            modifier = Modifier.fillParentMaxSize()
-                        ) {
-                            DibujarPedido(pedido)
-                        }//Box
-                    })
+            EP2Theme {
+                LazyRow(
+                    modifier = Modifier.fillMaxSize(),
+                    content = {
+                        items(items = arrayList, itemContent = { pedido ->
+                            Box(
+                                modifier = Modifier.fillParentMaxSize()
+                            ) {
+                                DibujarPedido(pedido)
+                            }//Box
+                        })
 
-                })//LazyRown
-        }//setContent
-    }//llenarlista
+                    })//LazyRown
+            }//setContent
+        }//llenarlista
+    }
 
 
     @Composable
@@ -153,6 +158,19 @@ class PedidoSeleccionadoActivity : ComponentActivity() {
                     .padding(horizontal = 10.dp, vertical = 5.dp),
                 color = Color.White
             )
+            Button(onClick = {
+                startActivity(
+                    Intent(
+                        this@PedidoSeleccionadoActivity,
+                        InformacionPedidosActivity::class.java
+                    )
+                )
+            }, shape = MaterialTheme.shapes.large,
+                modifier = Modifier.padding(8.dp)){
+
+
+                Text(text = stringResource(id = R.string.Boton_Pedido))
+            }
 
         }//Column
     }
