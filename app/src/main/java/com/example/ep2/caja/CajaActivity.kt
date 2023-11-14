@@ -119,6 +119,8 @@ class CajaActivity : ComponentActivity() {
                    var  respuesta: String = formatNumber(double)
                     Text(text = "Ingresos: S/. $respuesta", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))*/
 
+
+
                     Text(text = "Ingresos: S/.${formatNumber(ingresos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
                     Text(text = "Gastos: S/.${formatNumber(gastos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
                     Text(text = "Sub Total: S/.${formatNumber(subTotal)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
@@ -127,6 +129,8 @@ class CajaActivity : ComponentActivity() {
 
                         content = {
                             items(items = arrayList, itemContent = {
+
+                /*                var tipo =  it["tipo"].toInt();*/
 
                                 Column(
                                     modifier = Modifier
