@@ -7,8 +7,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -39,7 +39,6 @@ import com.example.ep2.ui.theme.EP2Theme
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.Locale
-import androidx.compose.foundation.layout.Box as Column
 
 class CajaActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,157 +117,103 @@ class CajaActivity : ComponentActivity() {
         setContent {
             EP2Theme {
 
-                Column {
-                    TopAppBar(
-                        title = { Text(text = stringResource(id = R.string.title_activity_caja)) },
-                        colors = TopAppBarDefaults.smallTopAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.secondary
-                        ),
-                        navigationIcon = {
-                            IconButton(onClick = {
-                                finish()
-                            }) {
-                                Icon(
-                                    imageVector = Icons.Filled.ArrowBack,
-                                    contentDescription = null
-                                )
+                Box() {
+
+                    Column {
+                        TopAppBar(
+                            title = { Text(text = stringResource(id = R.string.title_activity_caja)) },
+                            colors = TopAppBarDefaults.smallTopAppBarColors(
+                                containerColor = MaterialTheme.colorScheme.secondary
+                            ),
+                            navigationIcon = {
+                                IconButton(onClick = {
+                                    finish()
+                                }) {
+                                    Icon(
+                                        imageVector = Icons.Filled.ArrowBack,
+                                        contentDescription = null
+                                    )
+                                }
                             }
-                        }
-                    )
+                        )
 
-                    Text(text = "Ingresos: S/.${formatNumber(ingresos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
-                    Text(text = "Gastos: S/.${formatNumber(gastos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
-                    Text(text = "Sub Total: S/.${formatNumber(subTotal)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
+                        Text(text = "Ingresos: S/.${formatNumber(ingresos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
+                        Text(text = "Gastos: S/.${formatNumber(gastos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
+                        Text(text = "Sub Total: S/.${formatNumber(subTotal)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
 
-                    LazyColumn(
-                        modifier = Modifier.fillMaxSize(),
-                        content = {
-                            items(items = arrayList, itemContent = {
+                        LazyColumn(
+                            modifier = Modifier.fillMaxSize(),
+                            content = {
+                                items(items = arrayList, itemContent = {
 
-                                var tipo = it["tipo"].toString();
+                                    var tipo = it["tipo"].toString();
 
-                                var color: Color = if (tipo == "1") {
-                                    Color.Blue
-                                } else {
-                                    Color.Red
-                                }
+                                    var color: Color = if (tipo == "1") {
+                                        Color.Blue
+                                    } else {
+                                        Color.Red
+                                    }
 
-                                Column(
-                                    modifier = Modifier
-                                        .padding(all = dimensionResource(id = R.dimen.dimen))
-                                        .border(width = 1.dp, color = color, shape = RectangleShape)
-                                        .padding(all = dimensionResource(id = R.dimen.dimen_2)),
-                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(all = dimensionResource(id = R.dimen.dimen))
+                                            .border(width = 1.dp, color = color, shape = RectangleShape)
+                                            .padding(all = dimensionResource(id = R.dimen.dimen_2)),
+                                    ) {
 
-                                    Text(
-                                        text = it["idMovimiento"].toString(),
-                                        style = MaterialTheme.typography.titleLarge,
-                                        color = color
-                                    )
+                                        Text(
+                                            text = it["idMovimiento"].toString(),
+                                            style = MaterialTheme.typography.titleLarge,
+                                            color = color
+                                        )
 
-                                    Text(
-                                        text = it["fecha"].toString(),
-                                        style = MaterialTheme.typography.titleLarge,
-                                        color = color
-                                    )
-                                    Text(
-                                        text = it["descripcion"].toString(),
-                                        style = MaterialTheme.typography.titleLarge,
-                                        color = color
-                                    )
-                                    Text(
-                                        text = it["monto"].toString(),
-                                        style = MaterialTheme.typography.titleLarge,
-                                        color = color
-                                    )
-                                    Text(
-                                        text = it["tipo"].toString(),
-                                        style = MaterialTheme.typography.titleLarge,
-                                        color = color
-                                    )
-                                }
+                                        Text(
+                                            text = it["fecha"].toString(),
+                                            style = MaterialTheme.typography.titleLarge,
+                                            color = color
+                                        )
+                                        Text(
+                                            text = it["descripcion"].toString(),
+                                            style = MaterialTheme.typography.titleLarge,
+                                            color = color
+                                        )
+                                        Text(
+                                            text = it["monto"].toString(),
+                                            style = MaterialTheme.typography.titleLarge,
+                                            color = color
+                                        )
+                                        Text(
+                                            text = it["tipo"].toString(),
+                                            style = MaterialTheme.typography.titleLarge,
+                                            color = color
+                                        )
+                                    }
 
-                                /*            Card(
-                                                colors = CardDefaults.cardColors(
-                                                    containerColor = Color(255, 211, 155, 255)
-                                                ),
-                                                modifier = Modifier
-                                                    .padding(all = dimensionResource(id = R.dimen.espacio2))
-                                                    .fillMaxWidth()
-                                                    .clickable {
-                                                    }
-                                            ) {
-                                                Column(
-                                                    modifier = Modifier.padding(all = dimensionResource(id = R.dimen.espacio))
-                                                ) {
-                                                    Text(
-                                                        text = it["idMovimiento"].toString(),
-                                                        style = MaterialTheme.typography.titleLarge,
-                                                    )
+                                })
+                            },
+                        )
 
-                                                    Text(
-                                                        text = it["fecha"].toString(),
-                                                        style = MaterialTheme.typography.titleLarge,
-                                                    )
-                                                    Text(
-                                                        text = it["descripcion"].toString(),
-                                                        style = MaterialTheme.typography.titleLarge,
-                                                    )
-                                                    Text(
-                                                        text = it["monto"].toString(),
-                                                        style = MaterialTheme.typography.titleLarge,
-                                                    )
-                                                    Text(
-                                                        text = it["tipo"].toString(),
-                                                        style = MaterialTheme.typography.titleLarge,
-                                                    )
-                                                }
 
-                                            }*/
 
-                            })
-                        },
-                    )
+                    }
 
-                    FloatingActionButton(
-                        onClick = {
-                            startActivity(Intent(this@CajaActivity, CajaInsert::class.java))
-                        },
-                        modifier = Modifier
-                            .padding(all = 20.dp)
-                            .align(Alignment.BottomEnd)
-                    ) { Icon(Icons.Filled.Add, contentDescription = null) }
+
+                        FloatingActionButton(
+                            onClick = {
+                                startActivity(Intent(this@CajaActivity, CajaInsert::class.java))
+                            },
+                            modifier = Modifier
+                                .padding(all = 20.dp)
+                                .align(Alignment.BottomEnd)
+                        ) { Icon(Icons.Filled.Add, contentDescription = null) }
+
                 }
+
+
 
 
             }
 
-
-            /*        EP2Theme {
-                        Column {
-                      *//*      TopAppBar(
-                        title = { Text(text = stringResource(id = R.string.title_activity_caja)) },
-                        colors = TopAppBarDefaults.smallTopAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.secondary
-                        ),
-                        navigationIcon = {
-                            IconButton(onClick = {
-                                finish()
-                            }) {
-                                Icon(
-                                    imageVector = Icons.Filled.ArrowBack,
-                                    contentDescription = null
-                                )
-                            }
-                        }
-
-                    )*//*
-
-
-
-
-                }
-            }*/
 
         }
 
