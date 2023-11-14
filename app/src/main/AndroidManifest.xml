@@ -17,7 +17,7 @@
         <activity
             android:name=".InformacionPedidosActivity"
             android:exported="false"
-            android:label="@string/title_activity_informacion_pedidos"
+            android:label="@string/title_activity_pedidos_informacion"
             android:theme="@style/Theme.EP2" />
         <activity
             android:name=".login.LoginActivity"

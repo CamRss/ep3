@@ -1,6 +1,5 @@
 package com.example.ep2.caja
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -43,7 +41,7 @@ class CajaInsert : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            EP2Theme{
+            EP2Theme {
 
                 TopAppBar(
                     title = { Text(text = stringResource(id = R.string.title_activity_ingresar)) },
@@ -66,12 +64,12 @@ class CajaInsert : ComponentActivity() {
                 Box(modifier = Modifier.padding(horizontal = 20.dp, vertical = 60.dp)) {
                     var mensaje: String = "";
                     var switchState by remember { mutableStateOf(false) }
-                    var monto by remember {mutableStateOf("")}
-                    var descripcion by remember {mutableStateOf("")}
+                    var monto by remember { mutableStateOf("") }
+                    var descripcion by remember { mutableStateOf("") }
 
-                    Column (modifier= Modifier.padding(all = 24.dp)){
+                    Column(modifier = Modifier.padding(all = 24.dp)) {
 
-                        mensaje = if(switchState) {
+                        mensaje = if (switchState) {
                             "Ingreso"
                         } else {
                             "Salida"
@@ -91,7 +89,7 @@ class CajaInsert : ComponentActivity() {
 
                         TextField(
                             value = monto,
-                            label = {Text(text = "Monto")},
+                            label = { Text(text = "Monto") },
                             modifier = Modifier.fillMaxWidth(),
                             onValueChange = {
                                 monto = it
@@ -102,7 +100,7 @@ class CajaInsert : ComponentActivity() {
 
                         TextField(
                             value = descripcion,
-                            label = {Text(text = "Descripcion")},
+                            label = { Text(text = "Descripcion") },
                             modifier = Modifier.fillMaxWidth(),
                             onValueChange = {
                                 descripcion = it
@@ -113,7 +111,7 @@ class CajaInsert : ComponentActivity() {
 
                         Button(
                             onClick = {
-                                guardarDatos(monto,descripcion,switchState)
+                                guardarDatos(monto, descripcion, switchState)
                             }
                         ) {
                             Text("Guardar")
@@ -127,22 +125,22 @@ class CajaInsert : ComponentActivity() {
         }
     }
 
-    private fun guardarDatos(monto: String, descripcion: String,ingreso: Boolean) {
+    private fun guardarDatos(monto: String, descripcion: String, ingreso: Boolean) {
 
-        if(monto != "" || descripcion != "") {
+        if (monto != "" || descripcion != "") {
             var miVariableString: String = "Hola, Mundo!"
-            val datos = Datos(this,miVariableString,null,0)
+            val datos = Datos(this, miVariableString, null, 0)
 
             var tipo: Int = 0;
 
-            if(ingreso) {
+            if (ingreso) {
                 tipo = 1
             } else {
                 tipo = -1
             }
 
 
-                val response = datos.registrarMovimientos(datos,descripcion,monto.toFloat(),tipo)
+            val response = datos.registrarMovimientos(datos, descripcion, monto.toFloat(), tipo)
 
 
 
