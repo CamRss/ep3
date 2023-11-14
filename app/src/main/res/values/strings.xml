@@ -52,4 +52,5 @@ Aenean eget lorem non ligula tempus aliquam. Duis diam erat, efficitur vel ferme
     <string name="title_activity_perfil">PerfilActivity</string>
     <string name="title_activity_pedidos">Pedidos</string>
     <string name="title_activity_pedido_seleccionado">PedidoSeleccionadoActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

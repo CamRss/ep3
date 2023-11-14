@@ -10,7 +10,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -22,18 +21,13 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.ContextCompat.startActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -155,13 +149,13 @@ class PedidosActivity : ComponentActivity() {
 
     private fun seleccionarPedido(pedido: HashMap<String, String>) {
         val idpedido = pedido["idpedido"]
-        val nombre = pedido["nombre"]
-        val descripcion = pedido["descripcion"]
-        Toast.makeText(this, nombre, Toast.LENGTH_SHORT).show()
+        val nombres = pedido["nombres"]
+     /*   val descripcion = pedido["descripcion"]*/
+      /*  Toast.makeText(this, nombres, Toast.LENGTH_SHORT).show()*/
         val bundle = Bundle().apply {
             putString("idpedido", idpedido)
-            putString("nombre", nombre)
-            putString("descripcion", descripcion)
+            putString("nombre", nombres)
+        /*    putString("descripcion", descripcion)*/
         }
         val intent = Intent( this, PedidoSeleccionadoActivity::class.java)
         intent.putExtras(bundle)

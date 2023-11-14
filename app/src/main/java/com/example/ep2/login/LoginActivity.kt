@@ -30,6 +30,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.ep2.MainActivity
 import com.example.ep2.utils.UserStore
 import com.example.ep2.utils.Util
 import kotlinx.coroutines.launch
@@ -71,9 +72,9 @@ class LoginActivity : ComponentActivity() {
                 }) {
                     Text(text = "Iniciar Sesión")
                 }
-                Row (
+                Row(
                     verticalAlignment = Alignment.CenterVertically
-                ){
+                ) {
                     Text(text = "¿Desea guardar la sesión?")
                     Checkbox(checked = guardarSesion, onCheckedChange = {
                         guardarSesion = it
@@ -91,9 +92,9 @@ class LoginActivity : ComponentActivity() {
 
     private fun leerServicioIniciarSesion(usuario: String, clave: String) {
         val queue = Volley.newRequestQueue(this)
-        val url = Util.rutaServicio + "iniciarsesion.php"
+        val url = Util.rutaServicioInicioSesion + "iniciarsesion.php"
         val stringRequest = object : StringRequest(
-            Request.Method.POST, url,
+            Method.POST, url,
             { response ->
                 Log.d("DATOS", response)
                 verificarInicioSesion(response)
@@ -103,8 +104,8 @@ class LoginActivity : ComponentActivity() {
             }) {
             override fun getParams(): MutableMap<String, String>? {
                 val params = HashMap<String, String>()
-                params.put("usuario", usuario)
-                params.put("clave", clave)
+                params["usuario"] = usuario
+                params["clave"] = clave
                 return params
             }
         }
@@ -122,14 +123,14 @@ class LoginActivity : ComponentActivity() {
                     "Hola " + Util.usuarioActivo.getString("nombres"),
                     Toast.LENGTH_SHORT
                 ).show()
-                /*startActivity(Intent(this, PerfilActivity::class.java))*/
+                startActivity(Intent(this, MainActivity::class.java))
                 verificarGuardarSesion(response)
             }
         }
     }
 
     private fun verificarGuardarSesion(response: String) {
-        if(estadoChecked){
+        if (estadoChecked) {
             val userStore = UserStore(this)
             lifecycleScope.launch {
                 userStore.setDatosUsuario(response)

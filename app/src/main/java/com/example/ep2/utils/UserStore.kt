@@ -16,10 +16,7 @@ class UserStore(private val context: Context) {
         val DATOS_USUARIO = stringPreferencesKey("datos_usuario")
     }
 
-    val getDatosUsuario: Flow<String> = context.dataStore.data
-        .map { preferences ->
-            preferences[DATOS_USUARIO] ?: ""
-        }
+    val getDatosUsuario: Flow<String> = context.dataStore.data.map { preferences -> preferences[DATOS_USUARIO] ?: "" }
 
     suspend fun setDatosUsuario(data: String) {
         context.dataStore.edit { preferences -> preferences[DATOS_USUARIO] = data
