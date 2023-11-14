@@ -118,36 +118,30 @@ class CajaActivity : ComponentActivity() {
         setContent {
             EP2Theme {
 
-                TopAppBar(
-                    title = { Text(text = stringResource(id = R.string.title_activity_caja)) },
-                    colors = TopAppBarDefaults.smallTopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.secondary
-                    ),
-                    navigationIcon = {
-                        IconButton(onClick = {
-                            finish()
-                        }) {
-                            Icon(
-                                imageVector = Icons.Filled.ArrowBack,
-                                contentDescription = null
-                            )
+                Column {
+                    TopAppBar(
+                        title = { Text(text = stringResource(id = R.string.title_activity_caja)) },
+                        colors = TopAppBarDefaults.smallTopAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.secondary
+                        ),
+                        navigationIcon = {
+                            IconButton(onClick = {
+                                finish()
+                            }) {
+                                Icon(
+                                    imageVector = Icons.Filled.ArrowBack,
+                                    contentDescription = null
+                                )
+                            }
                         }
-                    }
-                )
-
-                Box(modifier = Modifier.fillMaxSize()) {
-
-                    /*  var double: Double = 123123.123
-                     var  respuesta: String = formatNumber(double)
-                      Text(text = "Ingresos: S/. $respuesta", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))*/
-
+                    )
 
                     Text(text = "Ingresos: S/.${formatNumber(ingresos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
                     Text(text = "Gastos: S/.${formatNumber(gastos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
                     Text(text = "Sub Total: S/.${formatNumber(subTotal)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
 
                     LazyColumn(
-
+                        modifier = Modifier.fillMaxSize(),
                         content = {
                             items(items = arrayList, itemContent = {
 
@@ -161,7 +155,6 @@ class CajaActivity : ComponentActivity() {
 
                                 Column(
                                     modifier = Modifier
-                                        .fillMaxWidth()
                                         .padding(all = dimensionResource(id = R.dimen.dimen))
                                         .border(width = 1.dp, color = color, shape = RectangleShape)
                                         .padding(all = dimensionResource(id = R.dimen.dimen_2)),
@@ -170,23 +163,28 @@ class CajaActivity : ComponentActivity() {
                                     Text(
                                         text = it["idMovimiento"].toString(),
                                         style = MaterialTheme.typography.titleLarge,
+                                        color = color
                                     )
 
                                     Text(
                                         text = it["fecha"].toString(),
                                         style = MaterialTheme.typography.titleLarge,
+                                        color = color
                                     )
                                     Text(
                                         text = it["descripcion"].toString(),
                                         style = MaterialTheme.typography.titleLarge,
+                                        color = color
                                     )
                                     Text(
                                         text = it["monto"].toString(),
                                         style = MaterialTheme.typography.titleLarge,
+                                        color = color
                                     )
                                     Text(
                                         text = it["tipo"].toString(),
                                         style = MaterialTheme.typography.titleLarge,
+                                        color = color
                                     )
                                 }
 
@@ -232,8 +230,6 @@ class CajaActivity : ComponentActivity() {
                         },
                     )
 
-
-
                     FloatingActionButton(
                         onClick = {
                             startActivity(Intent(this@CajaActivity, CajaInsert::class.java))
@@ -243,6 +239,8 @@ class CajaActivity : ComponentActivity() {
                             .align(Alignment.BottomEnd)
                     ) { Icon(Icons.Filled.Add, contentDescription = null) }
                 }
+
+
             }
 
 
