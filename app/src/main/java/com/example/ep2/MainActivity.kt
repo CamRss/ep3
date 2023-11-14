@@ -15,11 +15,19 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
@@ -30,9 +38,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.lifecycleScope
 import com.example.ep2.caja.CajaActivity
 import com.example.ep2.ui.theme.Color2
 import com.example.ep2.ui.theme.EP2Theme
+import com.example.ep2.utils.UserStore
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -41,7 +52,7 @@ class MainActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
         setContent {
-
+            var mostrarVentanaAlert by remember { mutableStateOf(false) }
             EP2Theme {
                 Box(
                     modifier = Modifier.fillMaxSize()
@@ -100,10 +111,32 @@ class MainActivity : ComponentActivity() {
                         .padding(all = dimensionResource(id = (R.dimen.espacio3)))
                         .fillMaxWidth(),
                         onClick = {
-                            /*  startActivity(Intent(this@MainActivity, PedidosActivity::class.java))*/
+                            mostrarVentanaAlert = true
                         }, shape = MaterialTheme.shapes.large
                     ) {
                         Text(text = stringResource(id = R.string.cerrar_sesion))
+                    }
+
+                    if (mostrarVentanaAlert) {
+                        AlertDialog(
+                            icon = { Icon(Icons.Filled.Warning, contentDescription = null) },
+                            title = { Text(text = "Cerrar sesión") },
+                            text = { Text(text = "¿Está seguro que desea cerrar la sesión?") },
+                            onDismissRequest = { /*TODO*/ },
+                            confirmButton = {
+                                Button(onClick = {
+                                    mostrarVentanaAlert = false
+                                    cerrarSesion()
+                                }) {
+                                    Text(text = "Si")
+                                }
+                            },
+                            dismissButton = {
+                                Button(onClick = { mostrarVentanaAlert = false }) {
+                                    Text(text = "No")
+                                }
+                            }
+                        )
                     }
 
 
@@ -115,4 +148,13 @@ class MainActivity : ComponentActivity() {
 
         }
     }
+
+    private fun cerrarSesion() {
+        val userStore = UserStore(this)
+        lifecycleScope.launch {
+            userStore.setDatosUsuario("")
+        }
+        startActivity(Intent(this,SplashActivity::class.java))
+    }
+
 }
