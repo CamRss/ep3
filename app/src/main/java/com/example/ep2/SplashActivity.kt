@@ -16,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.lifecycleScope
 import com.example.ep2.login.LoginActivity
 import com.example.ep2.ui.theme.Color7
+import com.example.ep2.ui.theme.EP2Theme
 import com.example.ep2.utils.UserStore
 import com.example.ep2.utils.Util
 import kotlinx.coroutines.delay
@@ -27,23 +28,25 @@ class SplashActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            LaunchedEffect(key1 = true) {
-                delay(2000)
+            EP2Theme {
+                LaunchedEffect(key1 = true) {
+                    delay(2000)
 
-                lifecycleScope.launch {
-                    val userStore = UserStore(this@SplashActivity)
-                    var dato = userStore.getDatosUsuario.first()
+                    lifecycleScope.launch {
+                        val userStore = UserStore(this@SplashActivity)
+                        var dato = userStore.getDatosUsuario.first()
 
-                    if(dato == ""){
-                        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-                    } else {
-                        Util.usuarioActivo = JSONArray(dato).getJSONObject(0)
-                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        if (dato == "") {
+                            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                        } else {
+                            Util.usuarioActivo = JSONArray(dato).getJSONObject(0)
+                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        }
                     }
+
+                    finish()
+
                 }
-
-                finish()
-
             }
             Box(
                 modifier = Modifier

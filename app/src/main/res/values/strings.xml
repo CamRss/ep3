@@ -6,6 +6,7 @@
     <string name="logo">Logo de la empresa</string>
     <string name="frase"> ¡Es un buen día para tomar café!</string>
     <string name="Boton_princi">Pedidos</string>
+    <string name="Boton_Pedido">Información</string>
     <string name="title_activity_empezar">Empezar</string>
     <string name="descripcion_imagen_empezar">Mujer comprando en supermercado</string>
     <string name="frase_empezar">
@@ -51,6 +52,8 @@ Aenean eget lorem non ligula tempus aliquam. Duis diam erat, efficitur vel ferme
     <string name="title_activity_directores_update">DirectoresUpdateActivity</string>
     <string name="title_activity_perfil">PerfilActivity</string>
     <string name="title_activity_pedidos">Pedidos</string>
+    <string name="title_activity_pedidos_informacion">Información Extra</string>
     <string name="title_activity_pedido_seleccionado">PedidoSeleccionadoActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_informacion_pedidos">InformacionPedidosActivity</string>
 </resources>
