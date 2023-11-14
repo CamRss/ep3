@@ -14,22 +14,28 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ep2.R
 import com.example.ep2.datos.Datos
+import com.example.ep2.ui.theme.EP2Theme
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.Locale
@@ -110,15 +116,30 @@ class CajaActivity : ComponentActivity() {
 
 
         setContent {
+            EP2Theme {
 
-            Box(modifier = Modifier.fillMaxSize()) {
+                TopAppBar(
+                    title = { Text(text = stringResource(id = R.string.title_activity_caja)) },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.secondary
+                    ),
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            finish()
+                        }) {
+                            Icon(
+                                imageVector = Icons.Filled.ArrowBack,
+                                contentDescription = null
+                            )
+                        }
+                    }
+                )
 
-                Column {
+                Box(modifier = Modifier.fillMaxSize()) {
 
-                  /*  var double: Double = 123123.123
-                   var  respuesta: String = formatNumber(double)
-                    Text(text = "Ingresos: S/. $respuesta", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))*/
-
+                    /*  var double: Double = 123123.123
+                     var  respuesta: String = formatNumber(double)
+                      Text(text = "Ingresos: S/. $respuesta", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))*/
 
 
                     Text(text = "Ingresos: S/.${formatNumber(ingresos)}", style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold))
@@ -130,13 +151,19 @@ class CajaActivity : ComponentActivity() {
                         content = {
                             items(items = arrayList, itemContent = {
 
-                /*                var tipo =  it["tipo"].toInt();*/
+                                var tipo = it["tipo"].toString();
+
+                                var color: Color = if (tipo == "1") {
+                                    Color.Blue
+                                } else {
+                                    Color.Red
+                                }
 
                                 Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(all = dimensionResource(id = R.dimen.dimen))
-                                        .border(width = 1.dp, color = Color.Gray, shape = RectangleShape)
+                                        .border(width = 1.dp, color = color, shape = RectangleShape)
                                         .padding(all = dimensionResource(id = R.dimen.dimen_2)),
                                 ) {
 
@@ -205,18 +232,17 @@ class CajaActivity : ComponentActivity() {
                         },
                     )
 
+
+
+                    FloatingActionButton(
+                        onClick = {
+                            startActivity(Intent(this@CajaActivity, CajaInsert::class.java))
+                        },
+                        modifier = Modifier
+                            .padding(all = 20.dp)
+                            .align(Alignment.BottomEnd)
+                    ) { Icon(Icons.Filled.Add, contentDescription = null) }
                 }
-
-
-
-                FloatingActionButton(
-                    onClick = {
-                        startActivity(Intent(this@CajaActivity, CajaInsert::class.java))
-                    },
-                    modifier = Modifier
-                        .padding(all = 20.dp)
-                        .align(Alignment.BottomEnd)
-                ) { Icon(Icons.Filled.Add, contentDescription = null) }
             }
 
 
