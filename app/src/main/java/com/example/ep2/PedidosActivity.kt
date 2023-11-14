@@ -136,6 +136,7 @@ class PedidosActivity : ComponentActivity() {
                                     }//column
 
                                 }//card
+
                             })//items
 
                         })//LazyColumn

@@ -18,6 +18,16 @@
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.EP2" />
         <activity
+            android:name=".caja.CajaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.EP2" />
+        <activity
+            android:name=".caja.CajaInsert"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.EP2" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

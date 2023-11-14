@@ -3,4 +3,10 @@
     <dimen name="espacio">32dp</dimen>
     <dimen name="espacio1">16dp</dimen>
     <dimen name="espacio2">8dp</dimen>
+    <dimen name="espacio3">4dp</dimen>
+    <dimen name="espacio4">40dp</dimen>
+
+
+    <dimen name="dimen">4dp</dimen>
+    <dimen name="dimen_2">24dp</dimen>
 </resources>

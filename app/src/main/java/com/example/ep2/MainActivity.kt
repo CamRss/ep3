@@ -30,6 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ep2.caja.CajaActivity
 import com.example.ep2.ui.theme.Color2
 import com.example.ep2.ui.theme.EP2Theme
 
@@ -70,11 +71,11 @@ class MainActivity : ComponentActivity() {
 
                 Column(
                     modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Bottom
+                    verticalArrangement = Arrangement.Bottom,
                 ) {
 
                     Button(modifier = Modifier
-                        .padding(all = dimensionResource(id = (R.dimen.espacio1)))
+                        .padding(all = dimensionResource(id = (R.dimen.espacio3)))
                         .fillMaxWidth(),
                         onClick = {
                             startActivity(Intent(this@MainActivity, PedidosActivity::class.java))
@@ -82,6 +83,31 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Text(text = stringResource(id = R.string.Boton_princi))
                     }
+
+                    Button(modifier = Modifier
+                        .padding(all = dimensionResource(id = (R.dimen.espacio3)))
+                        .fillMaxWidth(),
+                        onClick = {
+                            startActivity(Intent(this@MainActivity, CajaActivity::class.java))
+                        }, shape = MaterialTheme.shapes.large
+                    ) {
+                        Text(text = stringResource(id = R.string.boton_caja))
+                    }
+
+
+                    Button(
+                        modifier = Modifier
+                        .padding(all = dimensionResource(id = (R.dimen.espacio3)))
+                        .fillMaxWidth(),
+                        onClick = {
+                            /*  startActivity(Intent(this@MainActivity, PedidosActivity::class.java))*/
+                        }, shape = MaterialTheme.shapes.large
+                    ) {
+                        Text(text = stringResource(id = R.string.cerrar_sesion))
+                    }
+
+
+
                 }
 
 
